@@ -9,16 +9,16 @@
                     </tr>
                     <tr>
                         <th>SOC</th>
-                        <th>100%</th>
+                        <th>{{ number_format($soc,0) }}%</th>
                     </tr>
                     <tr>
                         <th>SOH</th>
-                        <th>0%</th>
+                        <th>100%</th>
                     </tr>
                     @foreach( $pack_info as $dt)
                         <tr>
                             <th>{{ $dt->alias }}</th>
-                            <th>{{ $dt->value }} {{ $dt->unit }}</th>
+                            <th> {{ ($dt->unit == 'cycle')? $dt->value : number_format($dt->value ,2)  }} {{ $dt->unit }}</th>
                         </tr>
                     @endforeach
                     </thead>
@@ -59,8 +59,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @for ($x = 9,$i = 0; $i < 8; [$x++,$i++])
-                            <tr class="">
+                        @for ($x = 9,$i = 0; $i < 7; [$x++,$i++])
+                            <tr class="{{ ($cellstatus2[$i]->value == 1)? 'warning':'' }} {{ ($cellstatus2[$i]->value == 2)? 'danger ':'' }}">
                                 <td>Cell {{ $x }}</td>
                                 <td>{{ $vcell2[$i]->value }} mV</td>
                                 <td>{{ $tcell2[$i]->value }} &deg;C</td>

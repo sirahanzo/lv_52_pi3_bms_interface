@@ -208,5 +208,39 @@
         </div>
     </div>
 
+    <!-- Loading Box Modal -->
+    <div class="modal" id="progress" tabindex="-1" role="dialog" aria-labelledby="modal-label" >
+        <div class="modal-dialog modal-sm" role="document">
+
+            <center id="loadingbox">
+                <h2 class="">Loading</h2>
+                <div id="out" class="circle">
+                    <div id="quarterbox">
+                        <div id="quarter" class="circle"></div>
+                    </div>
+                    <div id="in" class="circle"></div>
+                </div>
+            </center>
+
+            <div class="loader hide">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <div class="progress hide">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                    <span class="sr-only">0% Complete</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Loading Box Modal -->
+
 
 @endsection

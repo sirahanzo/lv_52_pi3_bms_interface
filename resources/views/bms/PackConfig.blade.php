@@ -70,7 +70,8 @@
                 type: 'POST',
                 success: function (data) {
                     console.log(data);
-                    swal("Success!", "Data Saved!", "success");
+                    swal("Pack Configuration Changed", "Reboot The System By Switching Off.", "success");
+
                 },
                 error: function (jqXhr) {
                     var errorHtml = '';

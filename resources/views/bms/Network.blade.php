@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="{{asset('/')}}css/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="{{asset('/')}}css/clockpicker.css">
     <link rel="stylesheet" href="{{asset('/')}}css/sweetalert.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/loadingbox.css">
+
 @endsection
 
 @section('content')
@@ -91,7 +93,7 @@
         </div>
 
     </div>
-    <!-- Modal -->
+
 @endsection
 @section('js')
     <script src="{{ asset('/') }}js/bootstrap-datepicker.min.js"></script>
@@ -106,13 +108,25 @@
 
         $('#storeNetwork').click(function (e) {
 
+            $('#progress').modal({
+                backdrop: 'static',
+                keyboard: false,
+                show: true
+            });
+
+
             $.ajax({
                 url: '{{ url('save-network') }}',
                 data: $('#networkForm').serialize(),
                 type: 'POST',
+
                 success: function (data) {
                     console.log(data);
-                    swal("Success!", "Data Saved!", "success");
+                    $('#progress').modal('hide');
+
+//                    swal("Success!", "Data Saved!", "success");
+                    swal("IP Address Changed !", "Reboot The System By Switching Off.", "success");
+
                 },
                 error: function (jqXhr) {
                     var errorHtml = '';
@@ -140,7 +154,7 @@
                 type: 'POST',
                 success: function (data) {
                     console.log(data);
-                    swal("Success!", "Data Saved!", "success");
+                    swal("SNMP IP Address Changed !", "Reboot The System By Switching Off.", "success");
                 },
                 error: function (jqXhr) {
                     var errorHtml = '';

@@ -42,7 +42,7 @@
                                     </tr>
                                     <tr>
                                         <th>SOC</th>
-                                        <th>100%</th>
+                                        <th>0%</th>
                                     </tr>
                                     <tr>
                                         <th>SOH</th>
@@ -146,49 +146,49 @@
                                         </thead>
                                         <tbody>
                                         <tr class="">
-                                            <td>Cell 1</td>
+                                            <td>Cell 9</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 2</td>
+                                            <td>Cell 10</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 3</td>
+                                            <td>Cell 11</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 4</td>
+                                            <td>Cell 12</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 5</td>
+                                            <td>Cell 13</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 6</td>
+                                            <td>Cell 14</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Cell 7</td>
+                                            <td>Cell 15</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>
                                         </tr>
-                                        <tr class="">
-                                            <td>Cell 8</td>
+                                        <tr class="hide">
+                                            <td>Cell 16</td>
                                             <td>0 V</td>
                                             <td>0 &deg;C</td>
                                             <td>Off</td>

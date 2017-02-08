@@ -125,23 +125,23 @@ class ConfigurationController extends Controller {
         $gateway = $request->get('gateway');
 
         //save variable network setting to interfaces_temp
-        shell_exec(" echo > /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'auto lo' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'iface lo inet loopback' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'auto eth0' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '#iface eth0 inet dhcp' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'iface eth0 inet static' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'address $ipaddress' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'netmask $netmask' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo 'gateway $gateway' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '#allow-hotplug wlan0' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '#iface wlan0 inet manual' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("echo '#iface default inet dhcp' >> /home/pi/www/uploads/interfaces_temp ");
-        shell_exec("sudo cp /home/pi/www/uploads/interfaces_temp /etc/network/interfaces ");
+        shell_exec(" echo > /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'auto lo' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'iface lo inet loopback' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'auto eth0' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '#iface eth0 inet dhcp' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'iface eth0 inet static' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'address $ipaddress' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'netmask $netmask' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo 'gateway $gateway' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '#allow-hotplug wlan0' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '#iface wlan0 inet manual' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("echo '#iface default inet dhcp' >> /var/www/uploads/interfaces_temp ");
+        shell_exec("sudo cp /var/www/uploads/interfaces_temp /etc/network/interfaces ");
     }
 }

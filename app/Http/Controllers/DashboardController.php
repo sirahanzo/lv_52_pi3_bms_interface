@@ -49,11 +49,13 @@ class DashboardController extends Controller {
         $data['bal1'] = MonitoringStatus::whereBetween('status_id', [49, 56])->get(['value_' . $pack_id . ' as value']);
         $data['bal2'] = MonitoringStatus::whereBetween('status_id', [57, 64])->get(['value_' . $pack_id . ' as value']);
 
-        $data['vmax'] = Monitoring::whereBetween('parameter_id', [1, 16])->max('value_' . $pack_id);
+        $data['vmax'] = Monitoring::whereBetween('parameter_id', [1, 15])->max('value_' . $pack_id);
         $data['vmin'] = Monitoring::whereBetween('parameter_id', [1, 15])->min('value_' . $pack_id);
         $data['mos_temp'] = Monitoring::where('parameter_id', 33)->first(['value_' . $pack_id . ' as value']);
         $data['env_temp'] = Monitoring::where('parameter_id', 34)->first(['value_' . $pack_id . ' as value']);
-
+        $remain = Monitoring::where('parameter_id', 37)->first(['value_' . $pack_id . ' as value'])->value;
+        $fullcap = Monitoring::where('parameter_id', 38)->first(['value_' . $pack_id . ' as value'])->value;
+        $data['soc'] = ($remain /(($fullcap == 0 )? 1: $fullcap))* 100;
 
         $data['cellstatus1'] = MonitoringStatus::whereBetween('id', [1, 8])->get(['value_' . $pack_id . ' as value']);
         $data['cellstatus2'] = MonitoringStatus::whereBetween('id', [9, 16])->get(['value_' . $pack_id . ' as value']);
@@ -73,9 +75,9 @@ class DashboardController extends Controller {
 
         $data['fault1'] = $this->statusAlarm($pack_id, [15, 16]);
 
-        $data['set_protection1'] = SettingTreshold::whereIn('id', [2,10,6,14])->orderByRaw(" FIND_IN_SET(id, '2,10,6,14')")->get();
-        $data['set_protection2'] = SettingTreshold::whereIn('id', [18,21,25,34])->orderByRaw(" FIND_IN_SET(id, '18,21,25,34')")->get();
-        $data['set_protection3'] = SettingTreshold::whereIn('id', [37,46,52])->orderByRaw(" FIND_IN_SET(id, '37,46,52')")->get();
+        $data['set_protection1'] = SettingTreshold::whereIn('id', [3,13,8,18])->orderByRaw(" FIND_IN_SET(id, '2,10,6,14')")->get();
+        $data['set_protection2'] = SettingTreshold::whereIn('id', [23,27,32,42])->orderByRaw(" FIND_IN_SET(id, '18,21,25,34')")->get();
+        $data['set_protection3'] = SettingTreshold::whereIn('id', [45,56,63])->orderByRaw(" FIND_IN_SET(id, '37,46,52')")->get();
 
         //dd($data['protection3'] );
 

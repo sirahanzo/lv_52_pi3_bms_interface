@@ -80,6 +80,7 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('parameter-setting', 'ParameterSettingController@index');
     Route::post('save-setting', 'ParameterSettingController@store');
     Route::get('reset-setting/{id}','ParameterSettingController@reset_default');
+    Route::post('authorize-write','ParameterSettingController@authorizeWrite');
 
 
     //configuration group
@@ -101,6 +102,12 @@ Route::group(['middleware' => 'admin'],function(){
     Route::delete('user-delete/{id}', 'UsersController@destroy');
 });
 
+/*Route::get('debug',function (){
+    return view('vendor.Debug2');
+});
+Route::post('debug-save',function (){
+    return response()->json('saved',200);
+});*/
 
 
 /*Route::get('debug',function (){
@@ -111,9 +118,7 @@ Route::delete('debug-delete/{id}',function ($id){
     return response()->json('delete'.$id);
 });
 
-Route::post('debug-save',function (){
-    return response()->json('saved');
-});
+
 
 Route::post('debug-update/{id}',function ($id){
     return response()->json('updated '.$id);
