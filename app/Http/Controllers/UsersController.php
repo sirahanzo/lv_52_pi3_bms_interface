@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UsersRequest;
 use App\User;
 use Datatables;
-use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class UsersController extends Controller {
 
@@ -55,7 +53,9 @@ class UsersController extends Controller {
      */
     public function show()
     {
-        $user = User::all();
+        //$user = User::all();
+        $user = User::whereNotIn('level',['super'])->get();
+
         return Datatables::of($user)->addColumn('option', function ($user) {
             return '<button type="button" class="btn btn-info btn-circle" onclick="edit(' . $user['id'] . ')" ><i class="fa fa-pencil"></i> </button>
              <button type="button" class="btn btn-danger btn-circle" onclick="deleteUser(' . $user['id'] . ')"><i class="fa fa-times"></i> </button>';

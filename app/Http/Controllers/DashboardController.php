@@ -6,7 +6,6 @@ use App\Http\Traits\BmsTrait;
 use App\Monitoring;
 use App\MonitoringStatus;
 use App\SettingTreshold;
-use DB;
 
 
 class DashboardController extends Controller {
@@ -38,8 +37,6 @@ class DashboardController extends Controller {
     public function pack($pack_id = 1)
     {
         $data['pack'] = $pack_id;
-        //$data['pack_active'] = DB::table('pack_config')->whereState('1')->first();
-
 
         $data['pack_info'] = $this->dataMonitoring($pack_id, 35, 39);
         $data['vcell1'] = $this->dataMonitoring($pack_id, 1, 8);
@@ -56,6 +53,7 @@ class DashboardController extends Controller {
         $remain = Monitoring::where('parameter_id', 37)->first(['value_' . $pack_id . ' as value'])->value;
         $fullcap = Monitoring::where('parameter_id', 38)->first(['value_' . $pack_id . ' as value'])->value;
         $data['soc'] = ($remain /(($fullcap == 0 )? 1: $fullcap))* 100;
+        $data['i_total'] = $this->iPackTotal();
 
         $data['cellstatus1'] = MonitoringStatus::whereBetween('id', [1, 8])->get(['value_' . $pack_id . ' as value']);
         $data['cellstatus2'] = MonitoringStatus::whereBetween('id', [9, 16])->get(['value_' . $pack_id . ' as value']);
@@ -79,14 +77,7 @@ class DashboardController extends Controller {
         $data['set_protection2'] = SettingTreshold::whereIn('id', [23,27,32,42])->orderByRaw(" FIND_IN_SET(id, '18,21,25,34')")->get();
         $data['set_protection3'] = SettingTreshold::whereIn('id', [45,56,63])->orderByRaw(" FIND_IN_SET(id, '37,46,52')")->get();
 
-        //dd($data['protection3'] );
-
-
-        //$data['sys_stat1'] = MonitoringStatus::with('parameterstatus')->whereIn('id', [38, 40, 41, 42])->get();
         $data['sys_stat1'] = $this->dataStatus($pack_id, [38, 40, 41, 42]);
-
-
-        //dd($data['cellstatus1']);
 
         return view('bms.Ajax_Pack_Data', $data);
     }

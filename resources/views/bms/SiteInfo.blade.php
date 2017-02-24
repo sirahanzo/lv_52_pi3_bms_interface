@@ -25,6 +25,18 @@
                                 <form class="form-horizontal form-stripe" id="siteinfoForm">
                                     {{csrf_field()}}
                                     <div class="form-group">
+                                        <label class="col-sm-2 control-label">Part Number</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="part_number" class="form-control" id="part_number" placeholder="Name" value="{{$site->part_number}}" {{ (Auth::user()->level == 'super')?'':'disabled' }}>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Serial Number</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="site_id" class="form-control" id="serial_number" placeholder="Name" value="{{$site->serial_number}}" {{ (Auth::user()->level == 'super')?'':'disabled' }} >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-2 control-label">Site ID</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="site_id" class="form-control" id="site_id" placeholder="Name" value="{{$site->site_id}}" >

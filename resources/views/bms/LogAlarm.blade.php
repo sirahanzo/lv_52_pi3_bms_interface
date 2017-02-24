@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="{{asset('/')}}css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('/')}}css/sweetalert.css">
     <link rel="stylesheet" href="{{asset('/')}}css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}css/loadingbox.css">
+
     <style>
         .btn-darker-1.active {
             background-color: lightseagreen;
@@ -67,9 +69,9 @@
                             <table id="myTable" class="data-table table table-striped nowrap table-hover" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Parameter Name</th>
+                                    {{--<th>No</th>--}}
                                     <th>Date/Time</th>
+                                    <th>Parameter Name</th>
                                     <th>Value</th>
                                 </tr>
                                 </thead>
@@ -115,13 +117,15 @@
 
             processing: false,
             serverSide: true,
+            searching: false,
             ajax: '{!! url('alarmlog-range') !!}'+'?'+form,
+
 //            data: form,
             type:'POST',
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'name'},
+//                {data: 'id', name: 'id'},
                 {data: 'updated_at', name: 'updated_at'},
+                {data: 'name', name: 'name'},
                 {data: 'alarm', name: 'alarm'},
             ]
         });
@@ -179,6 +183,12 @@
 
 
         $('#download').click(function (e) {
+            $('#progress').modal({
+                backdrop: 'static',
+                keyboard: false,
+                show: true
+            });
+
             var form = $('#form_data').serialize();
 
             e.preventDefault();
@@ -188,6 +198,8 @@
                 data: form,
                 type:'GET',
                 complete: function (res) {
+                    $('#progress').modal('hide');
+
                     var  path = res.responseJSON.path;
                     location.href = path;
                 }

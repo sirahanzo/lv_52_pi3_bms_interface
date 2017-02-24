@@ -16,7 +16,7 @@ class IsAdmin {
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && $request->user()->level == 'admin') {
+        if (auth()->check() && ( $request->user()->level == 'admin' || $request->user()->level == 'super')) {
             return $next($request);
         }
 

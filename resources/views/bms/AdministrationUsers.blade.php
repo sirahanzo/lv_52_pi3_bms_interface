@@ -25,7 +25,7 @@
                             <table id="myTable" class="data-table table table-striped nowrap table-hover" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
+                                    {{--<th>No</th>--}}
                                     <th>Name</th>
                                     <th>Username</th>
                                     <th>Option</th>
@@ -113,15 +113,17 @@
         var oTable = $('#myTable').DataTable({
             processing: false,
             serverSide: true,
+            searching: false,
             ajax: '{!! url('user-show') !!}',
             columns: [
-                {data: 'id', name: 'id'},
+//                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'username', name: 'username'},
 //                {data: 'email', name: 'email'},
                 {data: 'option', name: 'option'}
             ]
         });
+
         function edit(id) {
 
             $.get("{{ url('user-edit').'/'}}" + id, function (data) {

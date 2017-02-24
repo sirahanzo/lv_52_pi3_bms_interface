@@ -15,6 +15,10 @@
                         <th>SOH</th>
                         <th>100%</th>
                     </tr>
+                    <tr>
+                        <th>Ipack total</th>
+                        <th>{{ $i_total->value }} A</th>
+                    </tr>
                     @foreach( $pack_info as $dt)
                         <tr>
                             <th>{{ $dt->alias }}</th>
@@ -97,6 +101,7 @@
                             <td>MOSFET Temp.</td>
                             <td>{{ $mos_temp->value }} &deg;C</td>
                         </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -112,13 +117,12 @@
                 </thead>
                 <tbody class="text-xs">
 
-                {{--todo: create method show alarm if setting enable--}}
                 @for ($x = 1,$i = 0; $i < 4; [$x++,$i++])
                     <tr>
                         {{--System Status--}}
                         <td>
                             @if(isset($sys_stat1[$i]))
-                                {{$sys_stat1[$i]->alias}} - {!! $sys_stat1[$i]->value == 1 ? '<span class="btn-xs btn-danger">On</span>':'Off' !!}
+                                {{$sys_stat1[$i]->alias}} - {!! $sys_stat1[$i]->value == 1 ? '<span class="btn-xs btn-success">On</span>':'Off' !!}
                             @endif
                         </td>
                         {{--<td>DcgMos-Off</td>--}}

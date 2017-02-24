@@ -61,7 +61,7 @@
                                     <form class="form-horizontal  form-stripe" id="snmpForm">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">SNMP IPaddress</label>
+                                            <label class="col-sm-4 control-label">NMS-Server</label>
                                             <div class="col-sm-8">
                                                 <input type="text" name="snmp_ip" class="form-control" id="snmp_server" placeholder="192.168.1.100" value="{{$network->snmp_ip}}" >
                                             </div>

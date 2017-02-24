@@ -7,7 +7,6 @@ use App\SettingTreshold;
 
 use Hash;
 use Illuminate\Support\Facades\Input;
-use Request;
 
 class ParameterSettingController extends Controller {
 
@@ -15,7 +14,6 @@ class ParameterSettingController extends Controller {
     /**
      * Display a listing of the resource.
      *
-     * @return Response
      */
     public function index()
     {
@@ -37,11 +35,9 @@ class ParameterSettingController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
      */
     public function store()
     {
-        //todo : check input do to isssue on codeinginter
 
         $i1 = Input::get('id')[1]['value'];
         $i2 = Input::get('id')[2]['value'];

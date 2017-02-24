@@ -7,8 +7,9 @@ use Carbon\Carbon;
 use Datatables;
 use DB;
 use Illuminate\Http\Request;
+use File;
 
-use App\Http\Requests;
+
 use Maatwebsite\Excel\Excel;
 
 class AlarmLogController extends Controller {
@@ -43,7 +44,7 @@ class AlarmLogController extends Controller {
 
         if (empty($request->get('from')) || empty($request->get('to'))) {
             $from = Carbon::now()->subHour(1);
-            $to = Carbon::now();
+            $to = Carbon::now()->toDateTimeString();
             $limit = 300;
 
             return $this->drawDataTable($pack_id, $from, $to, $limit);
@@ -61,10 +62,13 @@ class AlarmLogController extends Controller {
         $pack_id = $request->get('pack_id');
         $from = $request->get('from');
         $to = $request->get('to');
-        $limit = 3000;
+        //$limit = 3000;
+        $limit = $this->max_limit();
         $loadTemplate = 'AlarmLogTemplate.xlsx';
         $fileLogName = 'AlarmLog' . $from . '_' . $to;
 
+        //clear old file log
+        File::cleanDirectory('exports');
         $linkDownload = [
             'success' => true,
             'path'    => 'http://' . $request->server('HTTP_HOST') . '/exports/' . $fileLogName . '.xlsx',
@@ -73,7 +77,7 @@ class AlarmLogController extends Controller {
         if (empty($request->get('from')) || empty($request->get('to'))) {
 
             $from = Carbon::now()->subHour(1);
-            $to = Carbon::now();
+            $to = Carbon::now()->toDateTimeString();
             $limit = 1000;
 
             $this->exportAlarmLogToExcell($phpexcel, $pack_id, $from, $to, $limit, $loadTemplate, $fileLogName);

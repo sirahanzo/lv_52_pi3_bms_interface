@@ -18,7 +18,7 @@
             <!--LOGO-->
             <div class="logo">
                 <img alt="logo" src="images/nipress-logo.png" />
-                <h3 class="mb-xlg text-center " style="color: whitesmoke"><b>SNMP NS LITH</b></h3>
+                <h3 class="mb-xlg text-center " style="color: whitesmoke"><b>NS BMS MONITORING</b></h3>
 
             </div>
             <div class="box">
@@ -80,6 +80,6 @@
             </div>
             <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
         </div>
-        <h6 class="mb-xlg text-center" style="color: whitesmoke">&copy; 2017 | Powered By , <a href="http://www.sinergiteknologi.com/" target="_blank" id="stu">PT. SINERGI TEKNOLOGI UTAMA</a></h6>
+        <h6 class="mb-xlg text-center " style="color: whitesmoke">&copy; 2017 | All Rights Reserved , <a href="http://nipress.com/en/home/" target="_blank" id="stu">NIPRESS</a></h6>
     </div>
 @endsection

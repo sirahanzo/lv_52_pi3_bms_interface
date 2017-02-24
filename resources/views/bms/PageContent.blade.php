@@ -59,7 +59,8 @@
                     <div class="notice" id="alerts-notice">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                         <span> {{ date('D d M Y') }},</span>
-                        <span id="clockDisplay"></span>
+                        <span id="server" class="hide"></span>
+                        <span id="clockDisplay">{{date('h:i:s')}}</span>
                     </div>
                     <div class="header-separator"></div>
                 </div>
@@ -79,8 +80,8 @@
                         <div class="drop-content basic">
                             <ul>
                                 {{--todo: add link to user adminitration--}}
-                                <li><a href="pages_user-profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                                <li><a href="pages_lock-screen.html"><i class="fa fa-lock" aria-hidden="true"></i> Lock Screen</a></li>
+                                <li><a href="#dummy"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                                <li><a href="#dummy"><i class="fa fa-lock" aria-hidden="true"></i> Lock Screen</a></li>
                                 {{--<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Configurations</a></li>--}}
                             </ul>
                         </div>
@@ -108,7 +109,7 @@
                         <nav>
                             <ul class="nav" id="main-nav">
                                 <li class="{{(Request::segment(1) == '')?'active-item': '' ||(Request::segment(1) == 'dashboard')?'active-item': '' }}"><a href="{{url('dashboard')}}"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="{{ (Auth::user()->level == 'admin')?'':'hide' }} {{ (Request::segment(1) == 'parameter-setting')?'active-item': '' }}"><a href="{{url('parameter-setting')}}"><i class="fa fa-sliders" aria-hidden="true"></i><span>Parameter Setting</span></a></li>
+                                <li class="{{ (Auth::user()->level == 'admin')?'':'hide' || Auth::user()->level == 'super'}} {{ (Request::segment(1) == 'parameter-setting')?'active-item': '' }}"><a href="{{url('parameter-setting')}}"><i class="fa fa-sliders" aria-hidden="true"></i><span>Parameter Setting</span></a></li>
                                 <li class="has-child-item close-item {{ (Request::segment(1) == 'datalog-monitoring'|| Request::segment(1)== 'datalog-alarm')?'active-item open-item': 'close-item' }}">
                                     <a><i class="fa fa-file-excel-o" aria-hidden="true"></i><span>Logs</span></a>
                                     <ul class="nav child-nav level-1">
@@ -116,7 +117,7 @@
                                         <li class="{{ (Request::segment(1) == 'datalog-alarm')?'active-item': '' }}"><a href="{{url('datalog-alarm')}}">Alarm Log</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-child-item {{ (Auth::user()->level == 'admin')?'':'hide' }} {{( Request::segment(1) == 'configuration-datetime' ||Request::segment(1) == 'configuration-network' || Request::segment(1) == 'configuration-siteinfo' || Request::segment(1) == 'configuration-pack') ?'active-item open-item': 'close-item' }}">
+                                <li class="has-child-item  {{( Request::segment(1) == 'configuration-datetime' ||Request::segment(1) == 'configuration-network' || Request::segment(1) == 'configuration-siteinfo' || Request::segment(1) == 'configuration-pack') ?'active-item open-item': 'close-item' }}">
                                     <a><i class="fa fa-cubes" aria-hidden="true"></i><span>Configuration</span></a>
                                     <ul class="nav child-nav level-1">
                                         <li class="{{ (Request::segment(1) == 'configuration-datetime')?'active-item': '' }}"><a href="{{url('configuration-datetime')}}">DateTime</a></li>
@@ -125,7 +126,7 @@
                                         <li class="{{ (Request::segment(1) == 'configuration-pack')?'active-item': '' }}"><a href="{{url('configuration-pack')}}">Pack Config</a></li>
                                     </ul>
                                 </li>
-                                <li class="{{ (Auth::user()->level == 'admin')?'':'hide' }} {{ (Request::segment(1) == 'administration')?'active-item': '' }}"><a href="{{url('administration')}}"><i class="fa fa-users" aria-hidden="true"></i><span>Administration</span></a></li>
+                                <li class="{{ (Auth::user()->level == 'admin' || Auth::user()->level == 'super')?'':'hide' }} {{ (Request::segment(1) == 'administration')?'active-item': '' }}"><a href="{{url('administration')}}"><i class="fa fa-users" aria-hidden="true"></i><span>Administration</span></a></li>
 
                             </ul>
                         </nav>
@@ -204,7 +205,7 @@
         </div>
 
         <div class="page-footer">
-            <h6 class="mb-xlg text-right" style="color: whitesmoke">&copy; 2017 | Powered By , <a href="http://www.sinergiteknologi.com/" target="_blank" onmouseover="this.style.color='#FFA500'">PT. SINERGI TEKNOLOGI UTAMA &nbsp;</a></h6>
+            <h6 class="mb-xlg text-right" style="color: whitesmoke">&copy; 2017 | All Rights Reserved , <a href="http://nipress.com/en/home/" target="_blank" onmouseover="this.style.color='#FFA500'">NIPRESS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h6>
         </div>
     </div>
 

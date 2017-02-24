@@ -60,8 +60,8 @@
 
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }}">
                                                                         <input name="id[{{$setting1a[$i]->id}}][state]" type="checkbox" id="check1a{{$i}}" value="1"
-                                                                               class="checkbox1a" {{ ($setting1a[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check1a{{$i}}" class="checkbox1a">{{ ($setting1a[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox1a" {{ ($setting1a[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check1a{{$i}}" class="checkbox1a">{{ ($setting1a[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -69,7 +69,7 @@
                                                             <td class="{{ ($setting1a[$i]->id == 1)?'hide':'' }}" >
                                                                 @if(isset($setting1a[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting1a[$i]->id}}][value]"
-                                                                           value="{{ $setting1a[$i]->value }}">
+                                                                           value="{{ $setting1a[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -85,8 +85,8 @@
                                                                 @if(isset($setting1c[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }} ">
                                                                         <input name="id[{{$setting1c[$i]->id}}][state]" type="checkbox" id="check1c{{$i}}" value="1"
-                                                                               class="checkbox1c" {{ ($setting1c[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check1c{{$i}}" class="checkbox1c">{{ ($setting1c[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox1c" {{ ($setting1c[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check1c{{$i}}" class="checkbox1c">{{ ($setting1c[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -94,7 +94,7 @@
                                                             <td class="{{ ($setting1c[$i]->id == 11)?'hide':'' }}" >
                                                                 @if(isset($setting1c[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting1c[$i]->id}}][value]"
-                                                                           value="{{ $setting1c[$i]->value }}">
+                                                                           value="{{ $setting1c[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -114,8 +114,8 @@
                                                                 @if(isset($setting1b[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }} ">
                                                                         <input name="id[{{$setting1b[$i]->id}}][state]" type="checkbox" id="check1b{{$i}}" value="1"
-                                                                               class="checkbox1b" {{ ($setting1b[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check1b{{$i}}" class="checkbox1b">{{ ($setting1b[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox1b" {{ ($setting1b[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check1b{{$i}}" class="checkbox1b">{{ ($setting1b[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -123,7 +123,7 @@
                                                             <td class="{{ ($setting1b[$i]->id == 6)?'hide':'' }}" >
                                                                 @if(isset($setting1b[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting1b[$i]->id}}][value]"
-                                                                           value="{{ $setting1b[$i]->value }}">
+                                                                           value="{{ $setting1b[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -139,8 +139,8 @@
                                                                 @if(isset($setting1d[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }} ">
                                                                         <input name="id[{{$setting1d[$i]->id}}][state]" type="checkbox" id="check1d{{$i}}" value="1"
-                                                                               class="checkbox1d" {{ ($setting1d[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check1d{{$i}}" class="checkbox1d">{{ ($setting1d[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox1d" {{ ($setting1d[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check1d{{$i}}" class="checkbox1d">{{ ($setting1d[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -148,7 +148,7 @@
                                                             <td class="{{ ($setting1d[$i]->id == 16)?'hide':'' }}" >
                                                                 @if(isset($setting1d[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting1d[$i]->id}}][value]"
-                                                                           value="{{ $setting1d[$i]->value }}">
+                                                                           value="{{ $setting1d[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -160,7 +160,7 @@
 
                                                     </tbody>
                                                 </table>
-                                                <div class="form-group">
+                                                <div class="form-group hide">
                                                     <div class="col-sm-offset-3 col-sm-10">
                                                         <button type="button" class="btn btn-primary btn-wide store" id="store">Write All</button>
                                                         <button type="reset" class="btn btn-warning btn-wide">Read All</button>
@@ -199,8 +199,8 @@
 
                                                                     <div class="checkbox-custom checkbox-inline1 checkbox-primary {{ ($i == 1)? '':'hide' }}">
                                                                         <input name="id[{{$setting2a[$i]->id}}][state]" type="checkbox" id="check2a{{$i}}" value="1"
-                                                                               class="checkbox2a" {{ ($setting2a[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check2a{{$i}}" class="checkbox2a">{{ ($setting2a[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox2a" {{ ($setting2a[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check2a{{$i}}" class="checkbox2a">{{ ($setting2a[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -208,7 +208,7 @@
                                                             <td class="{{ ($setting2a[$i]->id == 21)?'hide':'' }}" >
                                                                 @if(isset($setting2a[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting2a[$i]->id}}][value]"
-                                                                           value="{{ $setting2a[$i]->value }}">
+                                                                           value="{{ $setting2a[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -224,8 +224,8 @@
                                                                 @if(isset($setting2b[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }} ">
                                                                         <input name="id[{{$setting2b[$i]->id}}][state]" type="checkbox" id="check2b{{$i}}" value="1"
-                                                                               class="checkbox2b" {{ ($setting2b[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check2b{{$i}}" class="checkbox2b">{{ ($setting2b[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox2b" {{ ($setting2b[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check2b{{$i}}" class="checkbox2b">{{ ($setting2b[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -233,7 +233,7 @@
                                                             <td class="{{ ($setting2b[$i]->id == 25)?'hide':'' }}" >
                                                                 @if(isset($setting2b[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting2b[$i]->id}}][value]"
-                                                                           value="{{ $setting2b[$i]->value }}">
+                                                                           value="{{ $setting2b[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -252,8 +252,8 @@
                                                                 @if(isset($setting2d[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary ">
                                                                         <input name="id[{{$setting2d[$i]->id}}][state]" type="checkbox" id="check2c{{$i}}" value="1"
-                                                                               class="checkbox2c" {{ ($setting2d[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check2c{{$i}}" class="checkbox2c">{{ ($setting2d[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox2c" {{ ($setting2d[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check2c{{$i}}" class="checkbox2c">{{ ($setting2d[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -261,7 +261,7 @@
                                                             <td>
                                                                 @if(isset($setting2d[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting2d[$i]->id}}][value]"
-                                                                           value="{{ $setting2d[$i]->value }}">
+                                                                           value="{{ $setting2d[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -277,8 +277,8 @@
                                                                 @if(isset($setting2c[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary {{ ($i == 1)? '':'hide' }}">
                                                                         <input name="id[{{$setting2c[$i]->id}}][state]" type="checkbox" id="check2c{{$i}}" value="1"
-                                                                               class="checkbox2c" {{ ($setting2c[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check2c{{$i}}" class="checkbox2c">{{ ($setting2c[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox2c" {{ ($setting2c[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check2c{{$i}}" class="checkbox2c">{{ ($setting2c[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -286,7 +286,7 @@
                                                             <td class="{{ ($setting2c[$i]->id == 29)?'hide':'' }}" >
                                                                 @if(isset($setting2c[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting2c[$i]->id}}][value]"
-                                                                           value="{{ $setting2c[$i]->value }}">
+                                                                           value="{{ $setting2c[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -299,7 +299,7 @@
 
                                                     </tbody>
                                                 </table>
-                                                <div class="form-group">
+                                                <div class="form-group hide">
                                                     <div class="col-sm-offset-3 col-sm-10">
                                                         <button type="button" class="btn btn-primary btn-wide store" id="store2">Write All</button>
                                                         <button type="reset" class="btn btn-warning btn-wide">Read All</button>
@@ -337,8 +337,8 @@
                                                                 @if(isset($setting3a[$i]))
                                                                     <div class="checkbox-custom checkbox-inline checkbox-primary hide">
                                                                         <input name="id[{{$setting3a[$i]->id}}][state]" type="checkbox" id="check3a{{$i}}" value="1"
-                                                                               class="checkbox3a" {{ ($setting3a[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check3a{{$i}}" class="checkbox3a">{{ ($setting3a[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox3a" {{ ($setting3a[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check3a{{$i}}" class="checkbox3a">{{ ($setting3a[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -346,7 +346,7 @@
                                                             <td>
                                                                 @if(isset($setting3a[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting3a[$i]->id}}][value]"
-                                                                           value="{{ $setting3a[$i]->value }}">
+                                                                           value="{{ $setting3a[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -360,10 +360,10 @@
                                                             </td>
                                                             <td class="{{ ($i == 0)? 'hide':'' }}">
                                                                 @if(isset($setting3b[$i]))
-                                                                    <div class="checkbox-custom checkbox-inline checkbox-primary ">
+                                                                    <div class="checkbox-custom checkbox-inline checkbox-primary hide ">
                                                                         <input name="id[{{$setting3b[$i]->id}}][state]" type="checkbox" id="check3b{{$i}}" value="1"
-                                                                               class="checkbox3b" {{ ($setting3b[$i]->state == 0)?'':'checked' }}>
-                                                                        <label for="check3b{{$i}}" class="checkbox3b">{{ ($setting3b[$i]->state == 0)?'Disable':'Enable' }}</label>
+                                                                               class="checkbox3b" {{ ($setting3b[0]->value == 0)?'':'checked' }} disabled>
+                                                                        <label for="check3b{{$i}}" class="checkbox3b">{{ ($setting3b[0]->value == 0)?'Disable':'Enable' }}</label>
                                                                     </div>
                                                                 @endif
 
@@ -371,7 +371,7 @@
                                                             <td class="{{ ($i == 0)? 'hide':'' }}">
                                                                 @if(isset($setting3b[$i]))
                                                                     <input class="form-control" type="text" name="id[{{$setting3b[$i]->id}}][value]"
-                                                                           value="{{ $setting3b[$i]->value }}">
+                                                                           value="{{ $setting3b[$i]->value }}" disabled>
 
                                                                 @endif
                                                             </td>
@@ -382,7 +382,7 @@
 
                                                     </tbody>
                                                 </table>
-                                                <div class="form-group">
+                                                <div class="form-group hide">
                                                     <div class="col-sm-offset-3 col-sm-10">
                                                         <button type="button" class="btn btn-primary btn-wide store" id="store3">Write Al</button>
                                                         <button type="reset" class="btn btn-warning btn-wide">Read All</button>

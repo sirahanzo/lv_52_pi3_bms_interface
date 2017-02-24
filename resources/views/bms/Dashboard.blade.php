@@ -49,6 +49,10 @@
                                         <th>0%</th>
                                     </tr>
                                     <tr>
+                                        <th>Ipack total</th>
+                                        <th>0 A</th>
+                                    </tr>
+                                    <tr>
                                         <th>Ipack</th>
                                         <th>0 A</th>
                                     </tr>
@@ -222,6 +226,7 @@
                                             <td>MOSFET Temp.</td>
                                             <td>0&deg;C</td>
                                         </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -306,7 +311,6 @@
             $('#pack_id').val(id);
         }
 
-        //todo : function is ok , but temporary shut
         setTimeout(function refreshTable() {
             $.ajax({
                 url:'{{ url('dashboard') }}'+'/'+ $('#pack_id').val(),
