@@ -38,7 +38,7 @@
         var m = ServerDate.getMinutes();
         var s = ServerDate.getSeconds();
         if (h == 0) {
-            h = 24;
+            h = 00;
         }
         if (h < 10) {
             h = "0" + h;
